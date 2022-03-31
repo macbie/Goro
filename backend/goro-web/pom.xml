@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>cc.goro</groupId>
+		<artifactId>goro-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<groupId>cc.goro</groupId>
+	<artifactId>goro-web</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>goro-web</name>
+	<packaging>war</packaging>
+	<description>Goro Web Module</description>
+
+	<properties>
+		<java.version>8</java.version>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>cc.goro</groupId>
+			<artifactId>goro-dao</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- excludes embeded tomcat -->
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<packagingExcludes>
+						WEB-INF/lib/tomcat-embed-*.jar,
+						WEB-INF/lib/spring-boot-starter-tomcat-*.jar
+					</packagingExcludes>
+				</configuration>
+			</plugin>
+			<!-- build docker image -->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.13</version>
+					<executions>
+						<execution>
+							<id>default</id>
+							<phase>deploy</phase>
+							<goals>
+								<goal>build</goal>
+								<!--<goal>push</goal>-->
+							</goals>
+						</execution>
+					</executions>
+				<configuration>
+					<repository>${project.artifactId}</repository>
+					<!-- <repository>${project.build.finalName}</repository> -->
+					<tag>${project.version}</tag>
+					<buildArgs>
+						<SOURCE_DIR>target/${project.build.finalName}</SOURCE_DIR>
+						<SOURCE_JAR>target/${project.build.finalName}.jar</SOURCE_JAR>
+					</buildArgs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
