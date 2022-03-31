@@ -1,0 +1,28 @@
+spring:   
+  profiles:
+    include: db
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+# Tomcat
+server:
+  port: 8080
+  # servlet:
+  #   context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+    #链接建立超时时间
+    connection-timeout: 12000
+    #最小线程数
+    min-spare-threads: 500
+    #最大线程数
+    max-threads: 1000 # 200~250 per CPU-Core
+    #最大链接数
+    max-connections: 6500
+    #最大等待队列长度
+    accept-count: 1000
+    #请求头最大长度kb
+    max-http-header-size: 1048576
+    #请请求体最大长度kb
+    #max-http-post-size: 2097152

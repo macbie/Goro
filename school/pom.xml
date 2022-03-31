@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.5</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>cc.school</groupId>
+	<artifactId>school-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>school</name>
+	<description>Parent POM</description>
+	<packaging>pom</packaging>
+
+	<properties>
+		<java.version>8</java.version>
+		<!-- <maven.test.skip>true</maven.test.skip> -->
+	</properties>
+
+	<modules>
+		<module>school-model</module>
+		<module>school-dao</module>
+		<module>school-core</module>
+		<module>school-service</module>
+		<module>school-web</module>
+	</modules>
+	
+	<dependencies>
+	</dependencies>
+
+	<dependencyManagement>
+	</dependencyManagement>
+
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/macbie/goro</url>
+		</repository>
+	</distributionManagement>
+
+
+	<build>
+		<plugins>
+			<!-- Java Doc -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.3.2</version>
+				<configuration>
+					<defaultAuthor>CC</defaultAuthor>
+					<defaultVersion>${project.version}</defaultVersion>
+					<version>true</version>
+					<author>true</author>
+					<doclint>none</doclint>
+				</configuration>
+				<executions>
+					<execution>
+						<id>update</id>
+						<goals>
+							<goal>fix</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>javadoc</id>
+						<goals>
+							<goal>javadoc</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,25 @@
+wechat:
+  miniapp:
+    security:
+    - appName: app1
+      appId: xxx
+      secret: xxx
+    - appName: app2
+      appId: xxx
+      secret: xxx
+
+# @Getter
+# @Setter
+# pulbic class WxAppSec {
+#     private String appName;
+#     private String appId;
+#     private String secret;
+# }
+
+# @Getter
+# @Setter
+# @Configuration
+# @CondifurationProperties( prefix="wechat.miniapp", ignoreInvalidFields = true)
+# public class Config {
+#     private List<WxAppSec> wxApps;
+# }
