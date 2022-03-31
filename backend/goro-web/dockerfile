@@ -1,5 +1,6 @@
-FROM openjdk:8-jdk-alpine
-EXPOSE 8080
-ARG SOURCE_JAR
-COPY ${SOURCE_JAR}/ /app.jar
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+FROM tomcat:8-alpine
+#EXPOSE 8080
+RUN rm -fr /usr/local/tomcat/webapps/
+ARG SOURCE_DIR
+COPY ${SOURCE_DIR}/ /usr/local/tomcat/webapps/ROOT/
+#ENTRYPOINT ["java", "-jar", "/app.jar"]
