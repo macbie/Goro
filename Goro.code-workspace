@@ -6,7 +6,5 @@
 	],
 	"settings": {
 		"java.configuration.updateBuildConfiguration": "automatic",
-		"developer.home": "d:\\developer",
-		"maven.executable.path": "${developer.home}\\apache\\maven\\3.8.4x64\\bin\\mvn"
 	}
 }
