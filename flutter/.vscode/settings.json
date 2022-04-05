@@ -1,5 +1,4 @@
 {
-    "developer.home": "${execPath}/../../..",
     "[dart]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": true,

@@ -1,15 +1,28 @@
 {
 	"folders": [
 		{
+			"path": "docs"
+		},
+		{
 			"path": "backend"
 		},
 		{
 			"path": "flutter"
-		}
+		},
+		{
+			"path": "wxApp"
+		},
 	],
 	"settings": {
 		"java.configuration.updateBuildConfiguration": "automatic",
 		"developer.home": "${execPath}/../../..",
+		"maven.excludedFolders": [
+			"**/docs",
+			"**/wxApp"
+		],
+		"maven.executable.preferMavenWrapper": false,
+		"maven.showInExplorerContextMenu": false,
+		"maven.terminal.useJavaHome": true,
 		//"dart.flutterSdkPath": "D:/Developer/Flutter/2.10.4",
 	}
 }
