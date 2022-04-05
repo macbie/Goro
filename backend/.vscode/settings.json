@@ -1,0 +1,3 @@
+{
+    "java.jdt.ls.java.home": "${config:developer.home}/Java/JDK/openjdk-8u41"
+}

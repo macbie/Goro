@@ -2,9 +2,14 @@
 	"folders": [
 		{
 			"path": "backend"
+		},
+		{
+			"path": "flutter"
 		}
 	],
 	"settings": {
 		"java.configuration.updateBuildConfiguration": "automatic",
+		"developer.home": "${execPath}/../../..",
+		//"dart.flutterSdkPath": "D:/Developer/Flutter/2.10.4",
 	}
 }
