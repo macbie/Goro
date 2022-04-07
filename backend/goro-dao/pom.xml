@@ -26,8 +26,8 @@
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>cc.school</groupId>
-			<artifactId>school-model</artifactId>
+			<groupId>cc.goro</groupId>
+			<artifactId>goro-model</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		
